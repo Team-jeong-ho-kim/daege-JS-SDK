@@ -1,6 +1,7 @@
-import { comment } from "../post/Comment.ts";
-import { post } from "../post/Post.ts";
-import { template } from "../post/Template.ts";
+import type { comment } from "../post/Comment.js";
+import type { post } from "../post/Post.js";
+import type { template } from "../post/Template.js";
+import type { Client, ReadyClient } from "./Client.js";
 
 export enum Events {
   Ready = "ready",
@@ -24,7 +25,7 @@ export interface EventListeners {
 }
 
 export interface EventMap {
-  [Events.Ready]: [];
+  [Events.Ready]: [client: ReadyClient];
   [Events.PostCreated]: [post: post];
   [Events.PostUpdated]: [post: post];
   [Events.PostDeleted]: [postId: string];
@@ -37,3 +38,10 @@ export interface EventMap {
   [Events.TemplateUpdated]: [template: template];
   [Events.TemplateDeleted]: [templateId: string];
 }
+
+export type StreamEvent = {
+  [K in keyof EventMap]: {
+    event: K;
+    args: EventMap[K];
+  };
+}[keyof EventMap];

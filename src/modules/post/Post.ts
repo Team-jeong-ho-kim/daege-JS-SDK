@@ -1,4 +1,4 @@
-import { mager } from "../global/Mager.ts";
+import type { mager } from "../global/Mager.js";
 
 export type post = {
   id: string;

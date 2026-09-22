@@ -1,8 +1,8 @@
-import { Client } from "./modules/global/Client.ts";
-import { Events } from "./modules/global/Events.ts";
-import { mager } from "./modules/global/Mager.ts";
-import { comment } from "./modules/post/Comment.ts";
-import { post } from "./modules/post/Post.ts";
-import { template } from "./modules/post/Template.ts";
+import { Client } from "./modules/global/Client.js";
+import { Events } from "./modules/global/Events.js";
+import type { mager } from "./modules/global/Mager.js";
+import type { comment } from "./modules/post/Comment.js";
+import type { post } from "./modules/post/Post.js";
+import type { template } from "./modules/post/Template.js";
 
-export { Client, Events, mager, post, comment, template };
+export { Client, Events, type mager, type post, type comment, type template };
